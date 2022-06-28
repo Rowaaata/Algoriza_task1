@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task1/Onboarding1_Page.dart';
 import 'package:task1/Signin_page.dart';
 import 'package:task1/Register_page.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
 
     ),
-      home: RegisterPage(),
+      home: Onboarding_page()
     );
   }
 }
