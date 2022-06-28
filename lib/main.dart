@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
 
 
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.deepPurple,
 
     ),
-      home:const LoginPage(),
+      home: LoginPage(),
     );
   }
 }
