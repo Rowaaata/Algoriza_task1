@@ -1,23 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'Signin_page.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
+  static String id = "Register_page";
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var PhoneNumberController = TextEditingController();
-   final GlobalKey<FormState> formkey=GlobalKey<FormState>();
+  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-   LoginPage({Key? key}) : super(key: key);
+  RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('images/appbar.png'), fit: BoxFit.fill)),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50.0),
+        child: AppBar(
+          leading: Builder(builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            );
+          }),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('images/appbar1.png'), fit: BoxFit.fill)),
+          ),
         ),
       ),
       body: Padding(
@@ -40,17 +54,20 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         'Register',
-                        style:
-                            TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 29, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
-                        width: 150,
+                        width: 189,
                       ),
                       Text(
                         'Help',
-                        style: TextStyle(color: Colors.deepPurple),
+                        style: TextStyle(color: Colors.blue),
                       ),
-                      Icon(Icons.bookmark)
+                      Icon(
+                        Icons.help,
+                        color: Colors.blue,
+                      )
                     ],
                   ),
                   SizedBox(
@@ -58,16 +75,16 @@ class LoginPage extends StatelessWidget {
                   ),
                   Text(
                     'Email',
-
                   ),
                   SizedBox(
                     height: 5,
                   ),
-                  TextFormField( validator: (value){
-                    if(value!.isEmpty){
-                      return 'email is empty';
-                    }
-                  },
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'email is empty';
+                      }
+                    },
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     onFieldSubmitted: (String value) {
@@ -83,16 +100,16 @@ class LoginPage extends StatelessWidget {
                   ),
                   Text(
                     'Phone Number',
-
                   ),
                   SizedBox(
                     height: 5,
                   ),
-                  TextFormField( validator: (value){
-                    if(value!.isEmpty){
-                      return 'phone is empty';
-                    }
-                  },
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'phone is empty';
+                      }
+                    },
                     controller: PhoneNumberController,
                     keyboardType: TextInputType.phone,
                     onFieldSubmitted: (String value) {
@@ -108,17 +125,16 @@ class LoginPage extends StatelessWidget {
                   ),
                   Text(
                     'Password',
-
                   ),
                   SizedBox(
                     height: 5,
                   ),
-                  TextFormField(validator: (value){
-                    if(value!.isEmpty){
-                      return 'Password is empty';
-                    }
-                  },
-
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Password is empty';
+                      }
+                    },
                     controller: passwordController,
                     keyboardType: TextInputType.visiblePassword,
                     onFieldSubmitted: (String value) {
@@ -126,7 +142,10 @@ class LoginPage extends StatelessWidget {
                     },
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      suffixIcon: Icon(Icons.remove_red_eye),
+                      suffixIcon: Icon(
+                        Icons.remove_red_eye,
+                        color: Colors.black,
+                      ),
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -137,8 +156,9 @@ class LoginPage extends StatelessWidget {
                     width: double.infinity,
                     child: MaterialButton(
                       height: 50,
-                      color: Colors.deepPurple,
-                      onPressed: () {formkey.currentState!.validate();
+                      color: Colors.blue,
+                      onPressed: () {
+                        formkey.currentState!.validate();
                         print(emailController.text);
                         print(passwordController.text);
                       },
@@ -157,7 +177,8 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                     'or',
                     style: TextStyle(color: Colors.black54),
-                  )), SizedBox(
+                  )),
+                  SizedBox(
                     height: 10.0,
                   ),
                   Container(
@@ -165,7 +186,7 @@ class LoginPage extends StatelessWidget {
                     child: MaterialButton(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.zero,
-                          side: BorderSide(color: Colors.deepPurple)),
+                          side: BorderSide(color: Colors.blue)),
                       height: 50,
                       color: Colors.white,
                       onPressed: () {},
@@ -180,7 +201,7 @@ class LoginPage extends StatelessWidget {
                           Text(
                             'Sign With by Google',
                             style: TextStyle(
-                              color: Colors.deepPurple,
+                              color: Colors.blue,
                             ),
                           ),
                         ],
@@ -188,27 +209,45 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10.0,
-                  ),
-
-                    Row(mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Has any account?",style: TextStyle(color: Colors.black54),),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text("Sign in here",style: TextStyle(color: Colors.deepPurple),)
-                      ],
-                    ),
-                  SizedBox(
                     height: 30.0,
                   ),
-                  Center(child: Text('By regestring your account,you are agree to our',style: TextStyle(color: Colors.black54),)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Has any account?",
+                        style: TextStyle(color: Colors.black54),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push( context,MaterialPageRoute(builder: (context) =>  SigninPage()),);
+                        },
+                        child: Text(
+                          'Signin here',
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                    ],
+                  ),
+                  Center(
+                      child: Text(
+                    'By regestring your account,you are agree to our',
+                    style: TextStyle(color: Colors.black54),
+                  )),
                   SizedBox(
                     height: 5.0,
                   ),
-                  Center(child: Text('Terms and Condition',style: TextStyle(color: Colors.deepPurple),))
-
+                  Center(
+                      child: Text(
+                    'Terms and Condition',
+                    style: TextStyle(color: Colors.blue),
+                  ))
                 ]),
           ),
         ),
