@@ -1,17 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Signin_page.dart';
+
 class RegisterPage extends StatefulWidget {
   static String id = "Register_page";
+
   RegisterPage({Key? key}) : super(key: key);
+
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
+
 class _RegisterPageState extends State<RegisterPage> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var PhoneNumberController = TextEditingController();
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  bool showError = false;
+  final List<String> dropList = [
+    '+81',
+    '+297',
+    '+61',
+    '+55',
+    '+237',
+    '+1',
+    '+86',
+    '+20',
+    '+33',
+    '	+233',
+    '+355'
+  ];
+  String phoneCode = '+81';
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -104,32 +124,51 @@ class _RegisterPageState extends State<RegisterPage> {
                   SizedBox(
                     height: 5,
                   ),
-                  Container(width: double.infinity,
-                    child: ListTile(
-                      title:Container(
-                        child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            _buildDropDownButton('+81',),
-                            Expanded(
-                              child: TextFormField(
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'phone Number is not registered';
-                                  }
-                                },
-                                controller: PhoneNumberController,
-                                keyboardType: TextInputType.phone,
-                                onFieldSubmitted: (String value) {
-                                  print(value);
-                                },
-                                decoration: InputDecoration(suffixIcon: Icon(Icons.warning,color: Colors.red,),
-                                  labelText: 'Eg.812345678',
-                                  border: OutlineInputBorder(),
-                                ),
-                              ),
-                            )
-                          ],
+                  Container(
+                    height: 80,
+                    width: MediaQuery.of(context).size.width,
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          setState(() {
+                            showError = true;
+                          });
+                          return 'phone Number is not registered';
+                        } else {
+                          setState(() {
+                            showError = false;
+                          });
+                        }
+                      },
+                      controller: PhoneNumberController,
+                      keyboardType: TextInputType.phone,
+                      onFieldSubmitted: (String value) {
+                        print(value);
+                      },
+                      decoration: InputDecoration(
+                        suffixIcon: Visibility(
+                          visible: showError,
+                          child: Icon(
+                            Icons.warning,
+                            color: Colors.red,
+                          ),
                         ),
+                        prefixIcon: _buildDropDownButton(
+                          phoneCode,
+                        ),
+                        hintText: 'Eg.812345678',
+                         enabledBorder: OutlineInputBorder(
+                           borderSide: BorderSide(
+                             color: Colors.grey
+                           )
+                         ),
+                         focusedBorder: OutlineInputBorder(
+                           borderSide: BorderSide(color: Colors.grey),
+                         ),
+                         errorBorder: OutlineInputBorder(
+                           borderSide: BorderSide(color: Colors.red)
+                         )
+                         //border: OutlineInputBorder(),
                       ),
                     ),
                   ),
@@ -233,7 +272,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push( context,MaterialPageRoute(builder: (context) =>  SigninPage()),);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SigninPage()),
+                          );
                         },
                         child: Text(
                           'Sign in here',
@@ -267,41 +310,27 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _buildDropDownButton(String currencyCategory) {
     return Container(
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton(
-            iconEnabledColor: Colors.black,
-            style: TextStyle(
-              color: Colors.black,
-            ),
-            dropdownColor: Colors.blue,
-            value: currencyCategory,
-            items: [
-              '+81',
-              '+297',
-              '+61',
-              '+55',
-              '+237',
-              '+1',
-              '+86',
-              '+20',
-              '+33',
-              '	+233',
-              '+355'
-            ]
-                .map((String value) => DropdownMenuItem(
-              value: value,
-              child: Row(
-                children: <Widget>[
-                  Text(value),
-                ],
-              ),
-            ))
-                .toList(),
-            onChanged: (value) {},
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton(
+          iconEnabledColor: Colors.black,
+          style: TextStyle(
+            color: Colors.black,
           ),
+          isExpanded: false,
+          dropdownColor: Colors.blue,
+          value: currencyCategory,
+          items: dropList
+              .map((String value) => DropdownMenuItem(
+                    value: value,
+                    child: Text(value),
+                  ))
+              .toList(),
+          onChanged: (value) {
+            setState(() {
+              phoneCode = "$value";
+            });
+          },
         ),
       ),
     );
