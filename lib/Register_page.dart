@@ -1,20 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Signin_page.dart';
-
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   static String id = "Register_page";
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
-  var PhoneNumberController = TextEditingController();
-  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-
   RegisterPage({Key? key}) : super(key: key);
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+class _RegisterPageState extends State<RegisterPage> {
+  var emailController = TextEditingController();
+
+  var passwordController = TextEditingController();
+
+  var PhoneNumberController = TextEditingController();
+
+  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),
@@ -104,20 +108,33 @@ class RegisterPage extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'phone is empty';
-                      }
-                    },
-                    controller: PhoneNumberController,
-                    keyboardType: TextInputType.phone,
-                    onFieldSubmitted: (String value) {
-                      print(value);
-                    },
-                    decoration: InputDecoration(
-                      labelText: 'Eg.812345678',
-                      border: OutlineInputBorder(),
+                  Container(width: double.infinity,
+                    child: ListTile(
+                      title:Container(
+                        child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildDropDownButton('+81',),
+                            Expanded(
+                              child: TextFormField(
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'phone Number is not registered';
+                                  }
+                                },
+                                controller: PhoneNumberController,
+                                keyboardType: TextInputType.phone,
+                                onFieldSubmitted: (String value) {
+                                  print(value);
+                                },
+                                decoration: InputDecoration(suffixIcon: Icon(Icons.warning,color: Colors.red,),
+                                  labelText: 'Eg.812345678',
+                                  border: OutlineInputBorder(),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -209,7 +226,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 30.0,
+                    height: 10.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -218,26 +235,23 @@ class RegisterPage extends StatelessWidget {
                         "Has any account?",
                         style: TextStyle(color: Colors.black54),
                       ),
-                      SizedBox(
-                        width: 5,
-                      ),
                       TextButton(
                         onPressed: () {
                           Navigator.push( context,MaterialPageRoute(builder: (context) =>  SigninPage()),);
                         },
                         child: Text(
-                          'Signin here',
+                          'Sign in here',
                           style: TextStyle(color: Colors.blue),
                         ),
                       ),
                       SizedBox(
-                        height: 30.0,
+                        height: 50.0,
                       ),
                     ],
                   ),
                   Center(
                       child: Text(
-                    'By regestring your account,you are agree to our',
+                    'By regestering your account,you are agree to our',
                     style: TextStyle(color: Colors.black54),
                   )),
                   SizedBox(
@@ -249,6 +263,48 @@ class RegisterPage extends StatelessWidget {
                     style: TextStyle(color: Colors.blue),
                   ))
                 ]),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDropDownButton(String currencyCategory) {
+    return Container(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton(
+            iconEnabledColor: Colors.black,
+            style: TextStyle(
+              color: Colors.black,
+            ),
+            dropdownColor: Colors.blue,
+            value: currencyCategory,
+            items: [
+              '+81',
+              '+297',
+              '+61',
+              '+55',
+              '+237',
+              '+1',
+              '+86',
+              '+20',
+              '+33',
+              '	+233',
+              '+355'
+            ]
+                .map((String value) => DropdownMenuItem(
+              value: value,
+              child: Row(
+                children: <Widget>[
+                  Text(value),
+                ],
+              ),
+            ))
+                .toList(),
+            onChanged: (value) {},
           ),
         ),
       ),

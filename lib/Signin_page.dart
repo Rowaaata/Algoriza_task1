@@ -1,13 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task1/Register_page.dart';
 
-class SigninPage extends StatelessWidget {
+class SigninPage extends StatefulWidget {
   static String id = 'Signin_page';
+  SigninPage({Key? key}) : super(key: key);
+  @override
+  State<SigninPage> createState() => _SigninPageState();
+}
+class _SigninPageState extends State<SigninPage> {
   var PhoneNumberController = TextEditingController();
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-
-  SigninPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -49,7 +52,7 @@ class SigninPage extends StatelessWidget {
                             fontSize: 29, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
-                        width: 189,
+                        width: 206,
                       ),
                       Text(
                         'Help',
@@ -70,24 +73,35 @@ class SigninPage extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'phone is empty';
-                      }
-                    },
-                    controller: PhoneNumberController,
-                    keyboardType: TextInputType.phone,
-                    onFieldSubmitted: (String value) {
-                      print(value);
-                    },
-                    decoration: InputDecoration(
-                      labelText: 'Eg.812345678',
-                      border: OutlineInputBorder(),
+                  ListTile(
+                    title:Container(width: double.infinity,
+                      child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          _buildDropDownButton('+81',),
+                          Expanded(
+                            child: TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'phone Number is not registered';
+                                }
+                              },
+                              controller: PhoneNumberController,
+                              keyboardType: TextInputType.phone,
+                              onFieldSubmitted: (String value) {
+                                print(value);
+                              },
+                              decoration: InputDecoration(suffixIcon: Icon(Icons.warning,color: Colors.red,),
+                                labelText: 'Eg.812345678',
+                                border: OutlineInputBorder(),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Container(
                     width: double.infinity,
@@ -144,7 +158,7 @@ class SigninPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 30.0,
+                    height: 10.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -153,15 +167,16 @@ class SigninPage extends StatelessWidget {
                         "Doesn\'t has any account ?",
                         style: TextStyle(color: Colors.black54),
                       ),
-                      SizedBox(
-                        width: 5,
-                      ),
                       TextButton(
                         onPressed: () {
-                          Navigator.push( context,MaterialPageRoute(builder: (context) =>  RegisterPage()),);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterPage()),
+                          );
                         },
                         child: Text(
-                          'SignUp ',
+                          'Register here ',
                           style: TextStyle(color: Colors.blue),
                         ),
                       ),
@@ -189,4 +204,48 @@ class SigninPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildDropDownButton(String currencyCategory) {
+    return Container(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton(
+            iconEnabledColor: Colors.black,
+            style: TextStyle(
+              color: Colors.black,
+            ),
+            dropdownColor: Colors.blue,
+            value: currencyCategory,
+            items: [
+              '+81',
+              '+297',
+              '+61',
+              '+55',
+              '+237',
+              '+1',
+              '+86',
+              '+20',
+              '+33',
+              '	+233',
+              '+355'
+            ]
+                .map((String value) => DropdownMenuItem(
+                      value: value,
+                      child: Row(
+                        children: <Widget>[
+                          Text(value),
+                        ],
+                      ),
+                    ))
+                .toList(),
+            onChanged: (value) {},
+          ),
+        ),
+      ),
+    );
+  }
 }
+
+
