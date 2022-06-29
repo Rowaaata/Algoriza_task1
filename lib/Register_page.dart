@@ -4,13 +4,10 @@ import 'Signin_page.dart';
 
 class RegisterPage extends StatefulWidget {
   static String id = "Register_page";
-
   RegisterPage({Key? key}) : super(key: key);
-
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
-
 class _RegisterPageState extends State<RegisterPage> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -31,7 +28,6 @@ class _RegisterPageState extends State<RegisterPage> {
     '+355'
   ];
   String phoneCode = '+81';
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -315,7 +311,6 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
-
   Widget _buildDropDownButton(String currencyCategory) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8),

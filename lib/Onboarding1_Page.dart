@@ -6,7 +6,6 @@ import 'Signin_page.dart';
 
 class Onboarding_page extends StatelessWidget {
   const Onboarding_page({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

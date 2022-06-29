@@ -26,7 +26,6 @@ class _SigninPageState extends State<SigninPage> {
     '+355'
   ];
   String phoneCode = '+81';
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -249,7 +248,6 @@ class _SigninPageState extends State<SigninPage> {
       ),
     );
   }
-
   Widget _buildDropDownButton(String currencyCategory) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8),
