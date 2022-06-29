@@ -73,12 +73,15 @@ class OnboardingExtra_page extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 17,
-                  height: 5,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(2)),
-                    color: Colors.grey,
+                InkWell(
+                  onTap: ()=> Navigator.pop(context),
+                  child: Container(
+                    width: 17,
+                    height: 5,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(2)),
+                      color: Colors.grey,
+                    ),
                   ),
                 ),
                 SizedBox(

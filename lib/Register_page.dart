@@ -146,30 +146,26 @@ class _RegisterPageState extends State<RegisterPage> {
                         print(value);
                       },
                       decoration: InputDecoration(
-                        suffixIcon: Visibility(
-                          visible: showError,
-                          child: Icon(
-                            Icons.warning,
-                            color: Colors.red,
+                          suffixIcon: Visibility(
+                            visible: showError,
+                            child: Icon(
+                              Icons.warning,
+                              color: Colors.red,
+                            ),
                           ),
-                        ),
-                        prefixIcon: _buildDropDownButton(
-                          phoneCode,
-                        ),
-                        hintText: 'Eg.812345678',
-                         enabledBorder: OutlineInputBorder(
-                           borderSide: BorderSide(
-                             color: Colors.grey
-                           )
-                         ),
-                         focusedBorder: OutlineInputBorder(
-                           borderSide: BorderSide(color: Colors.grey),
-                         ),
-                         errorBorder: OutlineInputBorder(
-                           borderSide: BorderSide(color: Colors.red)
-                         )
-                         //border: OutlineInputBorder(),
-                      ),
+                          prefixIcon: _buildDropDownButton(
+                            phoneCode,
+                          ),
+                          hintText: 'Eg.812345678',
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey)),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.red))
+                          //border: OutlineInputBorder(),
+                          ),
                     ),
                   ),
                   SizedBox(
@@ -225,11 +221,26 @@ class _RegisterPageState extends State<RegisterPage> {
                   SizedBox(
                     height: 10.0,
                   ),
-                  Center(
-                      child: Text(
-                    'or',
-                    style: TextStyle(color: Colors.black54),
-                  )),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        child: Divider(),
+                      ),
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        child: Text(
+                          'or',
+                          style: TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        child: Divider(),
+                      ),
+                    ],
+                  ),
                   SizedBox(
                     height: 10.0,
                   ),
