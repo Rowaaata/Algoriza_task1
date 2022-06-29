@@ -12,14 +12,7 @@ class OnboardingExtra_page extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [Builder(builder: (BuildContext context) {
-                return IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                );
-              }),
+              children: [
                 SizedBox(width: 260,),
                 Container(margin: const EdgeInsets.all(8.0),
                   child: ElevatedButton(

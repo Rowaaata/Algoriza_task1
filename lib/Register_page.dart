@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     print(value);
                   },
                   decoration: InputDecoration(
-                    labelText: 'Eg.example@gmail.com',
+                    hintText: 'Eg.example@gmail.com',
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -187,7 +187,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     print(value);
                   },
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    hintText: 'Password',
                     suffixIcon: Icon(
                       Icons.remove_red_eye,
                       color: Colors.black,

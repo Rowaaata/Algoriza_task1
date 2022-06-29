@@ -124,7 +124,7 @@ class Onboarding_page extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => OnboardingExtra_page()),
+                        builder: (context) => SigninPage()),
                   );
                 },
                 child: const Text(
