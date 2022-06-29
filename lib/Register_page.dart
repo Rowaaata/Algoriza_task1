@@ -9,13 +9,9 @@ class RegisterPage extends StatefulWidget {
 }
 class _RegisterPageState extends State<RegisterPage> {
   var emailController = TextEditingController();
-
   var passwordController = TextEditingController();
-
   var PhoneNumberController = TextEditingController();
-
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
