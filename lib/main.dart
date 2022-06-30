@@ -7,7 +7,7 @@ import 'package:task1/Register_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, // transparent status bar
+    statusBarColor: Colors.transparent,
   ));
   runApp(const MyApp());
 }
