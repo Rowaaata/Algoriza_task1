@@ -7,7 +7,6 @@ import 'Register_page.dart';
 import 'Signin_page.dart';
 class Onboarding_page extends StatefulWidget {
   const Onboarding_page({Key? key}) : super(key: key);
-
   @override
   State<Onboarding_page> createState() => _Onboarding_pageState();
 }

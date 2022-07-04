@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task1/Register_page.dart';
-
 class SigninPage extends StatefulWidget {
   static String id = 'Signin_page';
   SigninPage({Key? key}) : super(key: key);
@@ -54,27 +53,33 @@ class _SigninPageState extends State<SigninPage> {
                     style: TextStyle(fontSize: 12, color: Colors.black54),
                   ),
                 ),
-                SizedBox(
-                  height: 15,
-                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Sign in',
+                    const Text(
+                      'Sign In',
                       style: TextStyle(
-                          fontSize: 29, fontWeight: FontWeight.bold),
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    SizedBox(
-                      width: 206,
+                    TextButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: const [
+                          Text(
+                            'Help', style: TextStyle(color: Colors.teal),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Icon(
+                            Icons.help,
+                            color: Colors.teal,
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      'Help',
-                      style: TextStyle(color: Colors.teal),
-                    ),
-                    Icon(
-                      Icons.help,
-                      color: Colors.teal,
-                    )
                   ],
                 ),
                 SizedBox(
@@ -118,7 +123,7 @@ class _SigninPageState extends State<SigninPage> {
                         prefixIcon: _buildDropDownButton(
                           phoneCode,
                         ),
-                        hintText: 'Eg.812345678',
+                        hintText: '812345678',
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.grey)),
                         focusedBorder: OutlineInputBorder(
@@ -132,7 +137,7 @@ class _SigninPageState extends State<SigninPage> {
                 ),
                 SizedBox(
                   height: 20,
-                ),
+               ),
                 Container(
                   width: double.infinity,
                   child: MaterialButton(

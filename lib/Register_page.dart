@@ -65,27 +65,36 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       'Register',
                       style: TextStyle(
-                          fontSize: 29, fontWeight: FontWeight.bold),
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    SizedBox(
-                      width: 189,
+                    TextButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: const [
+                          Text(
+                            'Help', style: TextStyle(color: Colors.teal),
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Icon(
+                            Icons.help,
+                            color: Colors.teal,
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      'Help',
-                      style: TextStyle(color: Colors.teal),
-                    ),
-                    Icon(
-                      Icons.help,
-                      color: Colors.teal,
-                    )
                   ],
                 ),
                 SizedBox(
-                  height: 18,
+                  height: 10,
                 ),
                 Text(
                   'Email',
@@ -105,12 +114,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     print(value);
                   },
                   decoration: InputDecoration(
-                    hintText: 'Eg.example@gmail.com',
+                    hintText: 'example@gmail.com',
                     border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 25,
                 ),
                 Text(
                   'Phone Number',
@@ -150,7 +159,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         prefixIcon: _buildDropDownButton(
                           phoneCode,
                         ),
-                        hintText: 'Eg.812345678',
+                        hintText: '812345678',
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.grey)),
                         focusedBorder: OutlineInputBorder(
@@ -163,7 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 7,
                 ),
                 Text(
                   'Password',
