@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:task1/Onboarding1_Page.dart';
-import 'package:task1/Onboarding2_page.dart';
 import 'package:task1/Signin_page.dart';
 import 'package:task1/Register_page.dart';
 void main() {

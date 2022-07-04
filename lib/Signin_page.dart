@@ -36,7 +36,7 @@ class _SigninPageState extends State<SigninPage> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('images/appbar1.png'), fit: BoxFit.fill)),
+                    image: AssetImage('assets/images/signIn.png'), fit: BoxFit.fill)),
           ),
         ),
       ),
@@ -69,11 +69,11 @@ class _SigninPageState extends State<SigninPage> {
                     ),
                     Text(
                       'Help',
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Colors.teal),
                     ),
                     Icon(
                       Icons.help,
-                      color: Colors.blue,
+                      color: Colors.teal,
                     )
                   ],
                 ),
@@ -137,7 +137,7 @@ class _SigninPageState extends State<SigninPage> {
                   width: double.infinity,
                   child: MaterialButton(
                     height: 50,
-                    color: Colors.blue,
+                    color: Colors.teal,
                     onPressed: () {
                       formkey.currentState!.validate();
                     },
@@ -180,7 +180,7 @@ class _SigninPageState extends State<SigninPage> {
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.zero,
-                        side: BorderSide(color: Colors.blue)),
+                        side: BorderSide(color: Colors.teal)),
                     height: 50,
                     color: Colors.white,
                     onPressed: () {},
@@ -188,14 +188,14 @@ class _SigninPageState extends State<SigninPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'images/google.png',
+                          'assets/images/google.png',
                           width: 30,
                           height: 30,
                         ),
                         Text(
                           'Sign With by Google',
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.teal,
                           ),
                         ),
                       ],
@@ -209,7 +209,7 @@ class _SigninPageState extends State<SigninPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Doesn\'t has any account ?",
+                      "Don\'t have any account ?",
                       style: TextStyle(color: Colors.black54),
                     ),
                     TextButton(
@@ -222,7 +222,7 @@ class _SigninPageState extends State<SigninPage> {
                       },
                       child: Text(
                         'Register here ',
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(color: Colors.teal),
                       ),
                     ),
                   ],
@@ -258,7 +258,7 @@ class _SigninPageState extends State<SigninPage> {
             color: Colors.black,
           ),
           isExpanded: false,
-          dropdownColor: Colors.blue,
+          dropdownColor: Colors.teal,
           value: currencyCategory,
           items: dropList
               .map((String value) => DropdownMenuItem(

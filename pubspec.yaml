@@ -60,10 +60,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/appbar1.png
-    - images/google.png
-    - images/page.png
-    - images/page2.png
+    - assets/images/google.png
+    - assets/images/page.png
+    - assets/images/page2.png
+    - assets/images/first.png
+    - assets/images/offer.png
+    - assets/images/serving.png
+    - assets/images/signIn.png
+
 
 
 

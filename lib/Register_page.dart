@@ -46,7 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('images/appbar1.png'), fit: BoxFit.fill)),
+                    image: AssetImage('assets/images/signIn.png'), fit: BoxFit.fill)),
           ),
         ),
       ),
@@ -76,11 +76,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     Text(
                       'Help',
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Colors.teal),
                     ),
                     Icon(
                       Icons.help,
-                      color: Colors.blue,
+                      color: Colors.teal,
                     )
                   ],
                 ),
@@ -198,7 +198,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   width: double.infinity,
                   child: MaterialButton(
                     height: 50,
-                    color: Colors.blue,
+                    color: Colors.teal,
                     onPressed: () {
                       formkey.currentState!.validate();
                       print(emailController.text);
@@ -243,7 +243,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.zero,
-                        side: BorderSide(color: Colors.blue)),
+                        side: BorderSide(color: Colors.teal)),
                     height: 50,
                     color: Colors.white,
                     onPressed: () {},
@@ -251,14 +251,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'images/google.png',
+                          'assets/images/google.png',
                           width: 30,
                           height: 30,
                         ),
                         Text(
                           'Sign With by Google',
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: Colors.teal,
                           ),
                         ),
                       ],
@@ -285,7 +285,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       },
                       child: Text(
                         'Sign in here',
-                        style: TextStyle(color: Colors.blue),
+                        style: TextStyle(color: Colors.teal),
                       ),
                     ),
                     SizedBox(
@@ -304,7 +304,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Center(
                     child: Text(
                   'Terms and Condition',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(color: Colors.teal),
                 ))
               ]),
         ),
@@ -321,7 +321,7 @@ class _RegisterPageState extends State<RegisterPage> {
             color: Colors.black,
           ),
           isExpanded: false,
-          dropdownColor: Colors.blue,
+          dropdownColor: Colors.teal,
           value: currencyCategory,
           items: dropList
               .map((String value) => DropdownMenuItem(
