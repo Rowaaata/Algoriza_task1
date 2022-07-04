@@ -33,7 +33,7 @@ class _RegisterPageState extends State<RegisterPage> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0),
+        preferredSize: Size.fromHeight(60.0),
         child: AppBar(
           leading: Builder(builder: (BuildContext context) {
             return IconButton(
@@ -186,7 +186,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     hintText: 'Password',
                     suffixIcon: Icon(
                       Icons.remove_red_eye,
-                      color: Colors.black,
+                      color: Colors.teal,
                     ),
                     border: OutlineInputBorder(),
                   ),
