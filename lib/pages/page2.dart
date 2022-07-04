@@ -16,7 +16,7 @@ class _page2State extends State<page2> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           SizedBox(width: 260,),
-          Container(margin: const EdgeInsets.all(8.0),
+          Container(margin: const EdgeInsets.all(20.0),
             child: ElevatedButton(
                 onPressed: () {},
                 child: Text(
